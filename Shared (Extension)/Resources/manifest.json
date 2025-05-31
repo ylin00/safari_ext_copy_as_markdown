@@ -1,0 +1,40 @@
+{
+    "manifest_version": 2,
+    "default_title": "Copy as Markdown",
+    "name": "Copy as Markdown",
+    "version": "1.0",
+    "description": "Copy selected text as markdown in Safari",
+    "icons": {
+        "48": "images/icon-48.png",
+        "96": "images/icon-96.png",
+        "128": "images/icon-128.png"
+    },
+    "content_scripts": [
+        {
+            "js": ["content.js"],
+            "matches": ["<all_urls>"]
+        }
+    ],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "permissions": [
+        "activeTab",
+        "clipboardWrite",
+        "contextMenus"
+    ],
+    "commands": {
+        "copy-as-markdown": {
+            "suggested_key": {
+                "mac": "Command+Shift+D"
+            },
+            "description": "Copy selected text as markdown"
+        }
+    },
+    "browser_specific_settings": {
+        "safari": {
+            "minimum_version": "14.0"
+        }
+    }
+}
